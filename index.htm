@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merry Christmas Babe</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .snowflake {
+            position: absolute;
+            color: white;
+            font-size: 1.5em;
+            opacity: 0.9;
+            animation: fall linear infinite;
+            z-index: 15;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.9),
+                         0 0 25px rgba(173, 216, 230, 0.7),
+                         0 0 35px rgba(135, 206, 250, 0.5);
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        .container {
+            text-align: center;
+            z-index: 10;
+            position: relative;
+            padding: 60px 80px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
+                        0 0 80px rgba(255, 215, 0, 0.3),
+                        inset 0 0 60px rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        h1 {
+            font-size: 4em;
+            color: #fff;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 1),
+                         0 0 50px rgba(255, 215, 0, 0.8),
+                         0 0 70px rgba(255, 215, 0, 0.6),
+                         0 0 100px rgba(255, 215, 0, 0.4);
+            margin-bottom: 0;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 30px rgba(255, 215, 0, 1),
+                           0 0 50px rgba(255, 215, 0, 0.8),
+                           0 0 70px rgba(255, 215, 0, 0.6);
+            }
+            to {
+                text-shadow: 0 0 40px rgba(255, 215, 0, 1),
+                           0 0 70px rgba(255, 215, 0, 1),
+                           0 0 100px rgba(255, 215, 0, 0.8),
+                           0 0 140px rgba(255, 215, 0, 0.6);
+            }
+        }
+
+        .heart {
+            display: inline-block;
+            font-size: 2em;
+            animation: beat 1.5s ease infinite;
+            margin: 0 15px;
+            filter: drop-shadow(0 0 10px rgba(255, 107, 157, 0.8));
+        }
+
+        @keyframes beat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.2); }
+            50% { transform: scale(1); }
+        }
+
+        .ornament {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            position: absolute;
+            animation: swing 3s ease-in-out infinite;
+        }
+
+        .ornament:nth-child(1) {
+            background: radial-gradient(circle at 30% 30%, #ff6b9d, #d4145a);
+            top: 50px;
+            left: 50px;
+            animation-delay: 0s;
+        }
+
+        .ornament:nth-child(2) {
+            background: radial-gradient(circle at 30% 30%, #ffd700, #ff8c00);
+            top: 100px;
+            right: 80px;
+            animation-delay: 0.5s;
+        }
+
+        .ornament:nth-child(3) {
+            background: radial-gradient(circle at 30% 30%, #4CAF50, #2E7D32);
+            bottom: 80px;
+            left: 100px;
+            animation-delay: 1s;
+        }
+
+        .ornament:nth-child(4) {
+            background: radial-gradient(circle at 30% 30%, #2196F3, #0D47A1);
+            bottom: 50px;
+            right: 50px;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes swing {
+            0%, 100% { transform: rotate(-10deg); }
+            50% { transform: rotate(10deg); }
+        }
+
+        .message {
+            font-size: 1.5em;
+            color: #fff;
+            margin-top: 20px;
+            font-style: italic;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .floating-heart {
+            position: absolute;
+            font-size: 2.5em;
+            animation: floatUpCute 5s ease-in-out infinite;
+            opacity: 0;
+            filter: drop-shadow(0 0 12px rgba(255, 107, 157, 0.9));
+            z-index: 15;
+        }
+
+        @keyframes floatUpCute {
+            0% {
+                opacity: 0;
+                transform: translateY(0) scale(0.3) rotate(0deg);
+            }
+            10% {
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-50vh) scale(1) rotate(180deg);
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100vh) scale(0.5) rotate(360deg);
+            }
+        }
+
+        .big-snowflake {
+            position: absolute;
+            font-size: 3em;
+            color: #fff;
+            opacity: 0.95;
+            animation: fallAndSpin linear infinite;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 1),
+                         0 0 30px rgba(173, 216, 230, 0.8),
+                         0 0 40px rgba(135, 206, 250, 0.6);
+            z-index: 15;
+        }
+
+        @keyframes fallAndSpin {
+            to {
+                transform: translateY(100vh) rotate(720deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="ornament"></div>
+    <div class="ornament"></div>
+    <div class="ornament"></div>
+    <div class="ornament"></div>
+
+    <div class="container">
+        <h1>
+            <span class="heart">💖</span>
+            Merry Christmas Babe
+            <span class="heart">💞</span>
+        </h1>
+    </div>
+
+    <script>
+        const container = document.querySelector('.container');
+        const containerRect = container.getBoundingClientRect();
+        
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            snowflake.textContent = '❄';
+            
+            // Position near the text container
+            const randomOffset = (Math.random() - 0.5) * 400;
+            snowflake.style.left = (containerRect.left + containerRect.width / 2 + randomOffset) + 'px';
+            snowflake.style.top = (containerRect.top - 100) + 'px';
+            snowflake.style.animationDuration = Math.random() * 3 + 5 + 's';
+            snowflake.style.fontSize = Math.random() * 1 + 0.5 + 'em';
+            document.body.appendChild(snowflake);
+
+            setTimeout(() => {
+                snowflake.remove();
+            }, 8000);
+        }
+
+        function createBigSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('big-snowflake');
+            snowflake.textContent = '❄';
+            
+            // Position near the text container
+            const randomOffset = (Math.random() - 0.5) * 500;
+            snowflake.style.left = (containerRect.left + containerRect.width / 2 + randomOffset) + 'px';
+            snowflake.style.top = (containerRect.top - 150) + 'px';
+            snowflake.style.animationDuration = Math.random() * 4 + 6 + 's';
+            document.body.appendChild(snowflake);
+
+            setTimeout(() => {
+                snowflake.remove();
+            }, 10000);
+        }
+
+        function createFloatingHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('floating-heart');
+            const hearts = ['💕', '💖', '💗', '💝', '💘'];
+            heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 2 + 4 + 's';
+            heart.style.animationDelay = Math.random() * 1 + 's';
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+        }
+
+        setInterval(createSnowflake, 200);
+        setInterval(createBigSnowflake, 400);
+        setInterval(createFloatingHeart, 600);
+    </script>
+</body>
+</html>
